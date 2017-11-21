@@ -21,13 +21,17 @@ html body {
 html body div {
   font-size: 12px;
   display: inline-block;
-  width: 650px;
+  width: 600px;
   height: 100vh;
-  padding: 20px;
   vertical-align: top;
 }
+html body div md-aside-table {
+  font-family: 'Josefin Sans';
+  text-transform: uppercase;
+  font-size: 18px;
+}
 html body div:first-of-type {
-  width: calc(100% - 650px);
+  width: calc(100% - 600px);
   overflow: auto;
   background: #2196F3;
   padding-top: 70px;
@@ -38,7 +42,7 @@ html body div:first-of-type::-webkit-scrollbar {
   background: white;
 }
 html body div:first-of-type::-webkit-scrollbar-thumb {
-  background: #010c14;
+  background: #0960a5;
 }
 html body div:first-of-type textarea {
   font-family: 'Libre Baskerville';
@@ -53,4 +57,19 @@ html body div:first-of-type textarea {
   width: 860px;
   margin: 0 auto;
   display: block;
+  box-shadow: 0 5px 32px rgba(0, 0, 0, 0.3);
+}
+md-aside-table {
+  display: block;
+  width: 100%;
+}
+md-aside-table > tt {
+  display: table;
+}
+md-aside-table > tt > t {
+  display: table-cell;
+  border: 2px solid black;
+}
+md-aside-table > tt > t:first-of-type {
+  width: 10%;
 }

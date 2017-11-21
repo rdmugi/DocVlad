@@ -10,8 +10,12 @@ html{
 			display: inline-block;
 			width: @asideSize;
 			height: 100vh;
-			padding: 20px;
 			vertical-align: top;
+			md-aside-table {
+				font-family: 'Josefin Sans';
+				text-transform: uppercase;
+				font-size: 18px;
+			}
 			&:first-of-type{
 				width: calc(100% ~"-" @asideSize);
 				overflow: auto;
@@ -19,7 +23,7 @@ html{
 				padding-top: 70px;
 				padding-bottom: 70px;
 				&::-webkit-scrollbar { width: 5px; background: white; }
-				&::-webkit-scrollbar-thumb { background: darken(@bg, 50%); }
+				&::-webkit-scrollbar-thumb { background: darken(@bg, 20%); }
 				textarea{
 					font-family: 'Libre Baskerville';
 					font-size: 22px;
@@ -33,7 +37,24 @@ html{
 					width: 860px;
 					margin: 0 auto;
 					display: block;
+					box-shadow: 0 5px 32px rgba(0, 0, 0, 0.3);
 				}
+			}
+		}
+	}
+}
+
+
+md-aside-table {
+	display: block;
+	width: 100%;
+	>tt {
+		display: table;
+		>t {
+			display: table-cell;
+			border: 2px solid black;
+			&:first-of-type {
+				width: 10%;
 			}
 		}
 	}
