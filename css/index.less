@@ -1,27 +1,34 @@
 // out: index.css
+
 @import "conf.less";
+
 html{
-  body{
-    div{
-      display: inline-block;
-      width: 49%;
-      height: 100vh;
-      padding: 20px;
-      &:first-of-type{
-      background: #5882FA;
-      }
-    }
-    textarea{
-      width: 100%;
-      height: 100vh;
-      padding: 20px;
-    }
-  }
+	body{
+		font-size: 0;
+		div{
+			font-size: 12px;
+			display: inline-block;
+			width: 400px;
+			height: 100vh;
+			padding: 20px;
+			vertical-align: top;
+			&:first-of-type{
+				width: ~"calc(100% - 400px)";
+				overflow: auto;
+				background: @bg;
+				&::-webkit-scrollbar { width: 5px; background: white; }
+				&::-webkit-scrollbar-thumb { background: black; }
+				textarea{
+					font-family: 'EB Garamond';
+					font-size: 25px;
+					width: 100%;
+					height: 1000px;
+					padding: 40px;
+					box-shadow: 0 10px 76px rgba(0,0,0,0.3);
+					border-radius: 4px;
+					resize: none;
+				}
+			}
+		}
+	}
 }
-
-/*
-	puedes poner la pantalla en split para ver si veo los 2 archivos trambien?
-
-  lo ves?
-  no, solo veo uno por vez :v
-*/
