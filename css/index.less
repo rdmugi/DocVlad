@@ -8,19 +8,19 @@ html{
 		div{
 			font-size: 12px;
 			display: inline-block;
-			width: 400px;
+			width: @asideSize;
 			height: 100vh;
 			padding: 20px;
 			vertical-align: top;
 			&:first-of-type{
-				width: ~"calc(100% - 400px)";
+				width: calc(100% ~"-" @asideSize);
 				overflow: auto;
 				background: @bg;
 				&::-webkit-scrollbar { width: 5px; background: white; }
 				&::-webkit-scrollbar-thumb { background: black; }
 				textarea{
-					font-family: 'EB Garamond';
-					font-size: 25px;
+					font-family: 'Libre Baskerville';
+					font-size: 22px;
 					width: 100%;
 					height: 1000px;
 					padding: 40px;
