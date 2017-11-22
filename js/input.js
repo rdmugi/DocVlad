@@ -3,7 +3,7 @@
 let Input = {
 	attach ( text ) {
 		text = ' ' + text;
-		Errors.analyze(text.split('\n'))
+		Errors.analyze(text)
 	},
 	domAndBinder () {
 		this.$input = document.getElementById('textarea')

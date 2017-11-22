@@ -6,16 +6,15 @@ let Errors = {
 
 	},
 	analyze ( textArray ) {
-		textArray.forEach( el => {
-			el = ' ' + el
-			console.log(el)
-			if ( el.match(/[^\w\dñÑáéíóúÁÉÍÓÚüÜºª\-_\/\s\\<>,;:.*\[\]\(\)+?¿!&%@=]/g) ) {
-				console.log(el.match(/[^\w\dñÑáéíóúÁÉÍÓÚüÜºª\-_\/\s\\<>,;:.*\[\]\(\)+?¿!&%@=]/g))
-			}
-		})
+		if ( textArray.match(/[^\w\dñÑüÜºª\-_\/\s\\<>,;:.*\[\]\(\)+?¿!&%@=]/g) ) {
+			//console.log(textArray.match(/[^\w\dñÑáéíóúÁÉÍÓÚüÜºª\-_\/\s\\<>,;:.*\[\]\(\)+?¿!&%@=]/g))
+			this.$screen.textContent = 'Hay un catacter extraño'
+		} else {
+			textArray = textArray.split('\n')
+		}
 	},
 	domAndBinder () {
-		this.$screen = document.querySelector('#screen')
+		this.$screen = document.querySelector('md-aside-table')
 	}
 }
 
