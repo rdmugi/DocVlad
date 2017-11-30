@@ -1,27 +1,76 @@
+let idenArray = {}
+let numbersArray = {}
+let charsArray = {}
+
 let Analizer = {
 	set ( textArray ) {
-
-		this.$screen.innerHTML = `
-			<tt>
-				<t>el</t>
-				<t>Token No.</t>
-				<t>Línea</t>
-				<t>Total</t>
-			</tt>
-		`
+		idenArray = {}
+		numbersArray = {}
+		charsArray = {}
 		textArray.forEach( (el, indx) => {
-			console.log( el.math(/[A-Z|a-z|á|é|í|ó|ú|Á|É|Í|Ó|Ú]+/g) )
-			console.log( el.math(/[0-9]+/g) )
-			console.log( el.math(/[(|)|{|}|,|\[|\]\-|;|\.]+/g) )
-			/*this.$screen.innerHTML += `
-				<tt>
-					<t>${indx}</t>
-					<t>${el}</t>
-					<t>Línea</t>
-					<t>Total</t>
-				</tt>
-			`*/
+			try {
+				this.identifiers = el.match(/[a-z|A-Z|á|é|í|ó|ú|Á|É|Í|Ó|Ú]+/g) || undefined
+				this.identifiers = this.identifiers.sort()
+				this.identifiers.forEach( (elem, indx2) => {
+					console.log( '-------------| ' + indx2 + ' |-------------')
+					if ( idenArray[elem] === undefined ) {
+						idenArray[elem] = {
+							"elm": elem,
+							"lne": indx + 1,
+							"ttl": 1
+						}
+					} else {
+						idenArray[elem] = {
+							"elm": elem,
+							"lne": idenArray[elem].lne + ", " + (indx + 1),
+							"ttl": parseInt(idenArray[elem].ttl) + 1
+						}
+					}
+				})
+
+				this.numbers = el.match(/[0-9]+/g) || undefined
+				this.numbers = this.numbers.sort()
+				this.numbers.forEach( (elem, indx2) => {
+					if ( numbersArray[elem] === undefined ) {
+						numbersArray[elem] = {
+							"elm": elem,
+							"lne": indx + 1,
+							"ttl": 1
+						}
+					} else {
+						numbersArray[elem] = {
+							"elm": elem,
+							"lne": numbersArray[elem].lne + ", " + (indx + 1),
+							"ttl": parseInt(numbersArray[elem].ttl) + 1
+						}
+					}
+				})
+
+				this.chars = el.match(/[(|)|{|}|,|\[|\]\-|;|\.]/g) || undefined
+				this.chars.forEach( (elem, indx2) => {
+					//console.log( charsArray )
+					if ( charsArray[elem] === undefined ) {
+						charsArray[elem] = {
+							"elm": elem,
+							"lne": indx + 1,
+							"ttl": 1
+						}
+					} else {
+						charsArray[elem] = {
+							"elm": elem,
+							"lne": charsArray[elem].lne + ", " + (indx + 1),
+							"ttl": parseInt(charsArray[elem].ttl) + 1
+						}
+					}
+				})
+
+
+			} catch (err) {
+
+			}
 		})
+
+		Results.pass( idenArray, numbersArray, charsArray )
 
 	},
 	domAndBinder () {

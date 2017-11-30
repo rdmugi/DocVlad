@@ -58,9 +58,17 @@ md-aside-table {
   padding: 10px;
   width: 100%;
   font-family: 'Josefin Sans';
-  text-transform: uppercase;
   font-size: 18px;
   display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  overflow: auto;
+}
+md-aside-table > b {
+  display: block;
+  text-align: center;
+  margin-top: 50vh;
+  width: 100%;
 }
 md-aside-table > tt {
   width: 100%;
@@ -70,10 +78,21 @@ md-aside-table > tt {
 md-aside-table > tt:hover {
   background: #e6e6e6;
 }
+md-aside-table > tt.section {
+  padding-top: 50px;
+  border-top: 1px solid gray;
+}
+md-aside-table > tt.section:hover {
+  background: transparent;
+}
 md-aside-table > tt > t {
   display: table-cell;
   vertical-align: middle;
+  width: 20%;
 }
 md-aside-table > tt > t:first-of-type {
   width: 10%;
+}
+md-aside-table > tt > t:last-of-type {
+  width: 7%;
 }

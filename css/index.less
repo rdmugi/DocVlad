@@ -43,9 +43,17 @@ md-aside-table {
 	padding: 10px;
 	width: 100%;
 	font-family: 'Josefin Sans';
-	text-transform: uppercase;
 	font-size: 18px;
 	display: flex;
+	flex-wrap: wrap;
+	height: 100vh;
+	overflow: auto;
+	>b {
+		display: block;
+		text-align: center;
+		margin-top: 50vh;
+		width: 100%;
+	}
 	>tt {
 		width: 100%;
 		padding: 7px;
@@ -53,11 +61,22 @@ md-aside-table {
 		&:hover {
 			background: #e6e6e6;
 		}
+		&.section {
+			padding-top: 50px;
+			border-top: 1px solid gray;
+			&:hover {
+				background: transparent;
+			}
+		}
 		>t {
 			display: table-cell;
 			vertical-align: middle;
+			width: 20%;
 			&:first-of-type {
 				width: 10%;
+			}
+			&:last-of-type {
+				width: 7%;
 			}
 		}
 	}
